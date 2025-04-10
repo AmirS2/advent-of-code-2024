@@ -21,8 +21,11 @@
                             (update %1 %2 inc)
                             (assoc %1 %2 1))
                          (sorted-map)
-                         sl)])
-      (printf "counts %s\n" counts))
+                         sl)
+          similarity (reduce + (map #(* % (get counts % 0)) fl))
+          ]
+      (printf "counts %s\n" counts)
+      (printf "similarity %s\n" similarity)))
 )
 
 (-main)
